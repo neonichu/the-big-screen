@@ -15,13 +15,15 @@ class CustomFocusView: UIView {
 
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         coordinator.addCoordinatedAnimations({
-            if context.nextFocusedView == self {
-                self.backgroundColor = UIColor.redColor()
-            }
+            UIView.animateWithDuration(UIView.inheritedAnimationDuration(), animations: {
+                if context.nextFocusedView == self {
+                    self.backgroundColor = UIColor.redColor()
+                }
 
-            if context.previouslyFocusedView == self {
-                self.backgroundColor = UIColor.whiteColor()
-            }
+                if context.previouslyFocusedView == self {
+                    self.backgroundColor = UIColor.whiteColor()
+                }
+            })
         }, completion: nil)
     }
 }
