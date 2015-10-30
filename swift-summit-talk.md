@@ -12,6 +12,10 @@
 
 ---
 
+![inline](images/nacho-tweet.png)
+
+---
+
 ## CocoaPods
 
 ![](images/cocoapods.jpg)
