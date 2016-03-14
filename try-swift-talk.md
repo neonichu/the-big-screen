@@ -247,6 +247,49 @@ func addCoordinatedAnimations(_ animations: (() -> Void)?,
 
 ---
 
+## CustomFocusView
+
+```swift
+class CustomFocusView: UIView {
+    override func canBecomeFocused() -> Bool {
+        return true
+    }
+}
+```
+
+---
+
+## CustomFocusView
+
+```swift
+override func didUpdateFocusInContext(context: UIFocusUpdateContext, 
+	withAnimationCoordinator
+	coordinator: UIFocusAnimationCoordinator) {
+        coordinator.addCoordinatedAnimations({
+            // ...
+    	}, completion: nil)
+    }
+```
+
+---
+
+## CustomFocusView
+
+```swift
+let duration = UIView.inheritedAnimationDuration()
+UIView.animateWithDuration(duration, animations: {
+    if context.nextFocusedView == self {
+      self.backgroundColor = UIColor.redColor()
+    }
+
+    if context.previouslyFocusedView == self {
+      self.backgroundColor = UIColor.whiteColor()
+    }
+})
+```
+
+---
+
 # Debugging focus
 
 ```swift
